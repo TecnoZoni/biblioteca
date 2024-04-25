@@ -2,6 +2,7 @@ package com.mycompany.biblioteca.igu;
 
 import com.mycompany.biblioteca.logica.Controladora;
 import com.mycompany.biblioteca.logica.Usuario;
+import java.awt.Color;
 
 public class Login extends javax.swing.JFrame {
 
@@ -29,11 +30,13 @@ public class Login extends javax.swing.JFrame {
         btnPanelVisitante = new javax.swing.JLabel();
         jSeparator1 = new javax.swing.JSeparator();
         jSeparator2 = new javax.swing.JSeparator();
+        btnCerrar = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(789, 439));
+        setUndecorated(true);
         setResizable(false);
-        setType(java.awt.Window.Type.UTILITY);
+        setType(java.awt.Window.Type.POPUP);
 
         pFondo.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -98,6 +101,22 @@ public class Login extends javax.swing.JFrame {
             }
         });
 
+        btnCerrar.setBackground(new java.awt.Color(0, 0, 0));
+        btnCerrar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnCerrar.setText("X");
+        btnCerrar.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
+        btnCerrar.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseClicked(evt);
+            }
+            public void mouseEntered(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseEntered(evt);
+            }
+            public void mouseExited(java.awt.event.MouseEvent evt) {
+                btnCerrarMouseExited(evt);
+            }
+        });
+
         javax.swing.GroupLayout pFormularioDerechaLayout = new javax.swing.GroupLayout(pFormularioDerecha);
         pFormularioDerecha.setLayout(pFormularioDerechaLayout);
         pFormularioDerechaLayout.setHorizontalGroup(
@@ -121,11 +140,17 @@ public class Login extends javax.swing.JFrame {
                     .addComponent(jSeparator2, javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtContrasenia, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.PREFERRED_SIZE, 231, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(38, 38, 38))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pFormularioDerechaLayout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnCerrar)
+                .addContainerGap())
         );
         pFormularioDerechaLayout.setVerticalGroup(
             pFormularioDerechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(pFormularioDerechaLayout.createSequentialGroup()
-                .addGap(58, 58, 58)
+                .addContainerGap()
+                .addComponent(btnCerrar)
+                .addGap(33, 33, 33)
                 .addComponent(jLabel1)
                 .addGap(60, 60, 60)
                 .addGroup(pFormularioDerechaLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -209,7 +234,22 @@ public class Login extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnPanelVisitanteMouseClicked
 
+    private void btnCerrarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseClicked
+        this.dispose();
+    }//GEN-LAST:event_btnCerrarMouseClicked
+
+    private void btnCerrarMouseEntered(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseEntered
+        Color colorTexto = new Color(53, 100, 252);
+        btnCerrar.setForeground(colorTexto);
+    }//GEN-LAST:event_btnCerrarMouseEntered
+
+    private void btnCerrarMouseExited(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarMouseExited
+        Color colorTexto = new Color(0, 0, 0);
+        btnCerrar.setForeground(colorTexto);
+    }//GEN-LAST:event_btnCerrarMouseExited
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel btnCerrar;
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JLabel btnPanelVisitante;
     private javax.swing.JLabel jLabel1;
