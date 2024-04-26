@@ -3,6 +3,8 @@ package com.mycompany.biblioteca.igu;
 import com.mycompany.biblioteca.logica.Controladora;
 import com.mycompany.biblioteca.logica.Usuario;
 import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Toolkit;
 
 public class Login extends javax.swing.JFrame {
 
@@ -209,9 +211,12 @@ public class Login extends javax.swing.JFrame {
                 Usuario user = control.comprobarUsuario(dni, contrasenia);
                 if (user != null) {
                     if (user.getUnrol().getNombre_rol().equals("Administrador")) {
-                        DashBoard abrir = new DashBoard(control, mensaje,user);
+                        DashBoard abrir = new DashBoard(control, mensaje, user);
                         abrir.setVisible(true);
-                        abrir.setLocationRelativeTo(null);
+
+                        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+                        abrir.setSize(screenSize.width, screenSize.height);
+
                         this.dispose();
                     }
                 } else {
@@ -230,7 +235,10 @@ public class Login extends javax.swing.JFrame {
     private void btnPanelVisitanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPanelVisitanteMouseClicked
         DashBoard_Visitante abrir = new DashBoard_Visitante(control, mensaje);
         abrir.setVisible(true);
-        abrir.setLocationRelativeTo(null);
+
+        Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+        abrir.setSize(screenSize.width, screenSize.height);
+
         this.dispose();
     }//GEN-LAST:event_btnPanelVisitanteMouseClicked
 
