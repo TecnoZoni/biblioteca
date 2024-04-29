@@ -1,17 +1,26 @@
 package com.mycompany.biblioteca.igu;
 
+import com.mycompany.biblioteca.igu.Paneles.BuscarLibros;
+import com.mycompany.biblioteca.igu.Paneles.MisPrestamos;
 import com.mycompany.biblioteca.logica.Controladora;
+import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class DashBoard_Visitante extends javax.swing.JFrame {
 
     Controladora control;
     Mensaje mensaje;
+    BuscarLibros pBuscarLibros;
+    MisPrestamos pMisPrestamos;
 
-    public DashBoard_Visitante(Controladora control, Mensaje mensaje) {
+    public DashBoard_Visitante(Controladora control, Mensaje mensaje, BuscarLibros pBuscarLibros, MisPrestamos pMisPrestamos) {
         initComponents();
         this.control = control;
         this.mensaje = mensaje;
+        this.pBuscarLibros = pBuscarLibros;
+        this.pMisPrestamos = pMisPrestamos;
     }
 
     @SuppressWarnings("unchecked")
@@ -25,12 +34,16 @@ public class DashBoard_Visitante extends javax.swing.JFrame {
         lblRolUsuario = new javax.swing.JLabel();
         btnMisPrestamos = new javax.swing.JButton();
         btnBuscarLibrosVisit = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        panelCambiante = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
-        setPreferredSize(new java.awt.Dimension(1001, 710));
         setResizable(false);
+        addWindowListener(new java.awt.event.WindowAdapter() {
+            public void windowOpened(java.awt.event.WindowEvent evt) {
+                formWindowOpened(evt);
+            }
+        });
 
         pFondo.setBackground(new java.awt.Color(255, 255, 255));
 
@@ -56,12 +69,12 @@ public class DashBoard_Visitante extends javax.swing.JFrame {
 
         lblNombreDelUsuario.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         lblNombreDelUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        lblNombreDelUsuario.setText("Nombre del Usuario");
+        lblNombreDelUsuario.setText("Visitante");
         pMenuLateral.add(lblNombreDelUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 37, 194, -1));
 
         lblRolUsuario.setFont(new java.awt.Font("Dialog", 0, 14)); // NOI18N
         lblRolUsuario.setForeground(new java.awt.Color(255, 255, 255));
-        lblRolUsuario.setText("Rol del Usuario");
+        lblRolUsuario.setText("Visitante");
         pMenuLateral.add(lblRolUsuario, new org.netbeans.lib.awtextra.AbsoluteConstraints(10, 67, 194, -1));
 
         btnMisPrestamos.setBackground(new java.awt.Color(23, 46, 222));
@@ -73,6 +86,11 @@ public class DashBoard_Visitante extends javax.swing.JFrame {
         btnMisPrestamos.setMaximumSize(new java.awt.Dimension(234, 70));
         btnMisPrestamos.setMinimumSize(new java.awt.Dimension(234, 70));
         btnMisPrestamos.setPreferredSize(new java.awt.Dimension(234, 70));
+        btnMisPrestamos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnMisPrestamosActionPerformed(evt);
+            }
+        });
         pMenuLateral.add(btnMisPrestamos, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 154, -1, -1));
 
         btnBuscarLibrosVisit.setBackground(new java.awt.Color(53, 100, 252));
@@ -84,16 +102,21 @@ public class DashBoard_Visitante extends javax.swing.JFrame {
         btnBuscarLibrosVisit.setMaximumSize(new java.awt.Dimension(234, 70));
         btnBuscarLibrosVisit.setMinimumSize(new java.awt.Dimension(234, 70));
         btnBuscarLibrosVisit.setPreferredSize(new java.awt.Dimension(234, 70));
+        btnBuscarLibrosVisit.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarLibrosVisitActionPerformed(evt);
+            }
+        });
         pMenuLateral.add(btnBuscarLibrosVisit, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 220, -1, -1));
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelCambianteLayout = new javax.swing.GroupLayout(panelCambiante);
+        panelCambiante.setLayout(panelCambianteLayout);
+        panelCambianteLayout.setHorizontalGroup(
+            panelCambianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelCambianteLayout.setVerticalGroup(
+            panelCambianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -108,7 +131,7 @@ public class DashBoard_Visitante extends javax.swing.JFrame {
                     .addGroup(pFondoLayout.createSequentialGroup()
                         .addGap(0, 739, Short.MAX_VALUE)
                         .addComponent(btnCerrarVisita))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelCambiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pFondoLayout.setVerticalGroup(
@@ -117,7 +140,7 @@ public class DashBoard_Visitante extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnCerrarVisita)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelCambiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(pMenuLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -153,14 +176,48 @@ public class DashBoard_Visitante extends javax.swing.JFrame {
         btnCerrarVisita.setForeground(colorTexto);
     }//GEN-LAST:event_btnCerrarVisitaMouseExited
 
+    private void btnMisPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMisPrestamosActionPerformed
+        pintarPanel(pMisPrestamos);
+        cambiarColorBotones(btnMisPrestamos);
+    }//GEN-LAST:event_btnMisPrestamosActionPerformed
+
+    private void btnBuscarLibrosVisitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarLibrosVisitActionPerformed
+        pintarPanel(pBuscarLibros);
+        cambiarColorBotones(btnBuscarLibrosVisit);
+    }//GEN-LAST:event_btnBuscarLibrosVisitActionPerformed
+
+    private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
+        pintarPanel(pMisPrestamos);
+    }//GEN-LAST:event_formWindowOpened
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarLibrosVisit;
     private javax.swing.JLabel btnCerrarVisita;
     private javax.swing.JButton btnMisPrestamos;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblNombreDelUsuario;
     private javax.swing.JLabel lblRolUsuario;
     private javax.swing.JPanel pFondo;
     private javax.swing.JPanel pMenuLateral;
+    private javax.swing.JPanel panelCambiante;
     // End of variables declaration//GEN-END:variables
+
+    private void pintarPanel(JPanel p) {
+        p.setSize(751, 660);
+        p.setLocation(0, 0);
+
+        panelCambiante.removeAll();
+        panelCambiante.add(p, BorderLayout.CENTER);
+        panelCambiante.revalidate();
+        panelCambiante.repaint();
+    }
+
+    private void cambiarColorBotones(JButton boton) {
+        Color colorBotonSeleccionado = new Color(23, 46, 222);
+        Color colorBotones = new Color(53, 100, 252);
+
+        btnBuscarLibrosVisit.setBackground(colorBotones);
+        btnMisPrestamos.setBackground(colorBotones);
+        boton.setBackground(colorBotonSeleccionado);
+    }
+
 }

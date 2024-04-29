@@ -1,5 +1,12 @@
 package com.mycompany.biblioteca.igu;
 
+import com.mycompany.biblioteca.igu.Paneles.BuscarLibros;
+import com.mycompany.biblioteca.igu.Paneles.GestionLibros;
+import com.mycompany.biblioteca.igu.Paneles.GestionMiembros;
+import com.mycompany.biblioteca.igu.Paneles.GestionUsuarios;
+import com.mycompany.biblioteca.igu.Paneles.MisPrestamos;
+import com.mycompany.biblioteca.igu.Paneles.NuevoPrestamo;
+import com.mycompany.biblioteca.igu.Paneles.Prestamos;
 import com.mycompany.biblioteca.logica.Controladora;
 import com.mycompany.biblioteca.logica.Usuario;
 import java.awt.Color;
@@ -10,6 +17,13 @@ public class Login extends javax.swing.JFrame {
 
     Controladora control = new Controladora();
     Mensaje mensaje = new Mensaje();
+    Prestamos pPrestamos = new Prestamos(mensaje);
+    BuscarLibros pBuscarLibros = new BuscarLibros(mensaje);
+    GestionMiembros pGestionMiembros = new GestionMiembros(mensaje);
+    NuevoPrestamo pNuevoPrestamo = new NuevoPrestamo(mensaje);
+    GestionLibros pGestionLibros = new GestionLibros(mensaje);
+    GestionUsuarios pGestionUsuarios = new GestionUsuarios(mensaje);
+    MisPrestamos pMisPrestamos = new MisPrestamos(mensaje);
 
     public Login() {
         initComponents();
@@ -211,7 +225,7 @@ public class Login extends javax.swing.JFrame {
                 Usuario user = control.comprobarUsuario(dni, contrasenia);
                 if (user != null) {
                     if (user.getUnrol().getNombre_rol().equals("Administrador")) {
-                        DashBoard abrir = new DashBoard(control, mensaje, user);
+                        DashBoard abrir = new DashBoard(control, mensaje, user, pPrestamos, pBuscarLibros,pGestionMiembros,pNuevoPrestamo,pGestionLibros,pGestionUsuarios);
                         abrir.setVisible(true);
 
                         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
@@ -233,7 +247,7 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
     private void btnPanelVisitanteMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnPanelVisitanteMouseClicked
-        DashBoard_Visitante abrir = new DashBoard_Visitante(control, mensaje);
+        DashBoard_Visitante abrir = new DashBoard_Visitante(control, mensaje,pBuscarLibros,pMisPrestamos);
         abrir.setVisible(true);
 
         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();

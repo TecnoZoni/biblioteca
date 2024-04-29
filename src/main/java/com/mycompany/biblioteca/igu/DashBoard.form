@@ -56,7 +56,7 @@
                           <EmptySpace min="0" pref="739" max="32767" attributes="0"/>
                           <Component id="btnCerrarAdmin" min="-2" max="-2" attributes="0"/>
                       </Group>
-                      <Component id="jPanel1" max="32767" attributes="0"/>
+                      <Component id="panelCambiante" max="32767" attributes="0"/>
                   </Group>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
@@ -68,7 +68,7 @@
                   <EmptySpace max="-2" attributes="0"/>
                   <Component id="btnCerrarAdmin" min="-2" max="-2" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
-                  <Component id="jPanel1" max="32767" attributes="0"/>
+                  <Component id="panelCambiante" max="32767" attributes="0"/>
                   <EmptySpace max="-2" attributes="0"/>
               </Group>
               <Component id="pMenuLateral" alignment="0" max="32767" attributes="0"/>
@@ -207,6 +207,9 @@
                   <Dimension value="[234, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnPrestamosActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnBuscarLibros">
               <Properties>
@@ -234,6 +237,9 @@
                   <Dimension value="[234, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnBuscarLibrosActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnGestionarMiembros">
               <Properties>
@@ -261,6 +267,9 @@
                   <Dimension value="[234, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGestionarMiembrosActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnNuevoPrestamo">
               <Properties>
@@ -288,6 +297,9 @@
                   <Dimension value="[234, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnNuevoPrestamoActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnGestionLibros">
               <Properties>
@@ -315,6 +327,9 @@
                   <Dimension value="[234, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGestionLibrosActionPerformed"/>
+              </Events>
             </Component>
             <Component class="javax.swing.JButton" name="btnGestionUsuarios">
               <Properties>
@@ -342,10 +357,13 @@
                   <Dimension value="[234, 70]"/>
                 </Property>
               </Properties>
+              <Events>
+                <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="btnGestionUsuariosActionPerformed"/>
+              </Events>
             </Component>
           </SubComponents>
         </Container>
-        <Container class="javax.swing.JPanel" name="jPanel1">
+        <Container class="javax.swing.JPanel" name="panelCambiante">
 
           <Layout>
             <DimensionLayout dim="0">

@@ -1,20 +1,41 @@
 package com.mycompany.biblioteca.igu;
 
+import com.mycompany.biblioteca.igu.Paneles.BuscarLibros;
+import com.mycompany.biblioteca.igu.Paneles.GestionLibros;
+import com.mycompany.biblioteca.igu.Paneles.GestionMiembros;
+import com.mycompany.biblioteca.igu.Paneles.GestionUsuarios;
+import com.mycompany.biblioteca.igu.Paneles.NuevoPrestamo;
+import com.mycompany.biblioteca.igu.Paneles.Prestamos;
 import com.mycompany.biblioteca.logica.Controladora;
 import com.mycompany.biblioteca.logica.Usuario;
+import java.awt.BorderLayout;
 import java.awt.Color;
+import javax.swing.JButton;
+import javax.swing.JPanel;
 
 public class DashBoard extends javax.swing.JFrame {
 
     Controladora control;
     Mensaje mensaje;
     Usuario user;
+    Prestamos pPrestamos;
+    BuscarLibros pBuscarLibros;
+    GestionMiembros pGestionMiembros;
+    NuevoPrestamo pNuevoPrestamo;
+    GestionLibros pGestionLibros;
+    GestionUsuarios pGestionUsuarios;
 
-    public DashBoard(Controladora control, Mensaje mensaje, Usuario user) {
+    public DashBoard(Controladora control, Mensaje mensaje, Usuario user, Prestamos pPrestamos, BuscarLibros pBuscarLibros, GestionMiembros pGestionMiembros, NuevoPrestamo pNuevoPrestamo, GestionLibros pGestionLibros, GestionUsuarios pGestionUsuarios) {
         initComponents();
         this.control = control;
         this.mensaje = mensaje;
         this.user = user;
+        this.pPrestamos = pPrestamos;
+        this.pBuscarLibros = pBuscarLibros;
+        this.pGestionMiembros = pGestionMiembros;
+        this.pNuevoPrestamo = pNuevoPrestamo;
+        this.pGestionLibros = pGestionLibros;
+        this.pGestionUsuarios = pGestionUsuarios;
     }
 
     @SuppressWarnings("unchecked")
@@ -32,7 +53,7 @@ public class DashBoard extends javax.swing.JFrame {
         btnNuevoPrestamo = new javax.swing.JButton();
         btnGestionLibros = new javax.swing.JButton();
         btnGestionUsuarios = new javax.swing.JButton();
-        jPanel1 = new javax.swing.JPanel();
+        panelCambiante = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setUndecorated(true);
@@ -82,6 +103,11 @@ public class DashBoard extends javax.swing.JFrame {
         btnPrestamos.setMaximumSize(new java.awt.Dimension(234, 70));
         btnPrestamos.setMinimumSize(new java.awt.Dimension(234, 70));
         btnPrestamos.setPreferredSize(new java.awt.Dimension(234, 70));
+        btnPrestamos.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPrestamosActionPerformed(evt);
+            }
+        });
 
         btnBuscarLibros.setBackground(new java.awt.Color(53, 100, 252));
         btnBuscarLibros.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -92,6 +118,11 @@ public class DashBoard extends javax.swing.JFrame {
         btnBuscarLibros.setMaximumSize(new java.awt.Dimension(234, 70));
         btnBuscarLibros.setMinimumSize(new java.awt.Dimension(234, 70));
         btnBuscarLibros.setPreferredSize(new java.awt.Dimension(234, 70));
+        btnBuscarLibros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBuscarLibrosActionPerformed(evt);
+            }
+        });
 
         btnGestionarMiembros.setBackground(new java.awt.Color(53, 100, 252));
         btnGestionarMiembros.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -102,6 +133,11 @@ public class DashBoard extends javax.swing.JFrame {
         btnGestionarMiembros.setMaximumSize(new java.awt.Dimension(234, 70));
         btnGestionarMiembros.setMinimumSize(new java.awt.Dimension(234, 70));
         btnGestionarMiembros.setPreferredSize(new java.awt.Dimension(234, 70));
+        btnGestionarMiembros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionarMiembrosActionPerformed(evt);
+            }
+        });
 
         btnNuevoPrestamo.setBackground(new java.awt.Color(53, 100, 252));
         btnNuevoPrestamo.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -112,6 +148,11 @@ public class DashBoard extends javax.swing.JFrame {
         btnNuevoPrestamo.setMaximumSize(new java.awt.Dimension(234, 70));
         btnNuevoPrestamo.setMinimumSize(new java.awt.Dimension(234, 70));
         btnNuevoPrestamo.setPreferredSize(new java.awt.Dimension(234, 70));
+        btnNuevoPrestamo.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnNuevoPrestamoActionPerformed(evt);
+            }
+        });
 
         btnGestionLibros.setBackground(new java.awt.Color(53, 100, 252));
         btnGestionLibros.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -122,6 +163,11 @@ public class DashBoard extends javax.swing.JFrame {
         btnGestionLibros.setMaximumSize(new java.awt.Dimension(234, 70));
         btnGestionLibros.setMinimumSize(new java.awt.Dimension(234, 70));
         btnGestionLibros.setPreferredSize(new java.awt.Dimension(234, 70));
+        btnGestionLibros.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionLibrosActionPerformed(evt);
+            }
+        });
 
         btnGestionUsuarios.setBackground(new java.awt.Color(53, 100, 252));
         btnGestionUsuarios.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
@@ -132,6 +178,11 @@ public class DashBoard extends javax.swing.JFrame {
         btnGestionUsuarios.setMaximumSize(new java.awt.Dimension(234, 70));
         btnGestionUsuarios.setMinimumSize(new java.awt.Dimension(234, 70));
         btnGestionUsuarios.setPreferredSize(new java.awt.Dimension(234, 70));
+        btnGestionUsuarios.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGestionUsuariosActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout pMenuLateralLayout = new javax.swing.GroupLayout(pMenuLateral);
         pMenuLateral.setLayout(pMenuLateralLayout);
@@ -175,14 +226,14 @@ public class DashBoard extends javax.swing.JFrame {
                 .addComponent(btnGestionUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
-        javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
-        jPanel1.setLayout(jPanel1Layout);
-        jPanel1Layout.setHorizontalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        javax.swing.GroupLayout panelCambianteLayout = new javax.swing.GroupLayout(panelCambiante);
+        panelCambiante.setLayout(panelCambianteLayout);
+        panelCambianteLayout.setHorizontalGroup(
+            panelCambianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
-        jPanel1Layout.setVerticalGroup(
-            jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+        panelCambianteLayout.setVerticalGroup(
+            panelCambianteLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
@@ -197,7 +248,7 @@ public class DashBoard extends javax.swing.JFrame {
                     .addGroup(pFondoLayout.createSequentialGroup()
                         .addGap(0, 739, Short.MAX_VALUE)
                         .addComponent(btnCerrarAdmin))
-                    .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(panelCambiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
         pFondoLayout.setVerticalGroup(
@@ -206,7 +257,7 @@ public class DashBoard extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(btnCerrarAdmin)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(panelCambiante, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addComponent(pMenuLateral, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
@@ -226,7 +277,7 @@ public class DashBoard extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnCerrarAdminMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCerrarAdminMouseClicked
-        this.dispose();        
+        this.dispose();
         Login login = new Login();
         login.setVisible(true);
         login.setLocationRelativeTo(null);
@@ -243,9 +294,40 @@ public class DashBoard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarAdminMouseExited
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        lblNombreDelUsuario.setText(user.getNombre()+" "+user.getApellido());
+        lblNombreDelUsuario.setText(user.getNombre() + " " + user.getApellido());
         lblRolUsuario.setText(user.getUnrol().getNombre_rol());
+        pintarPanel(pPrestamos);
     }//GEN-LAST:event_formWindowOpened
+
+    private void btnPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestamosActionPerformed
+        pintarPanel(pPrestamos);
+        cambiarColorBotones(btnPrestamos);
+    }//GEN-LAST:event_btnPrestamosActionPerformed
+
+    private void btnBuscarLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarLibrosActionPerformed
+        pintarPanel(pBuscarLibros);
+        cambiarColorBotones(btnBuscarLibros);
+    }//GEN-LAST:event_btnBuscarLibrosActionPerformed
+
+    private void btnGestionarMiembrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarMiembrosActionPerformed
+        pintarPanel(pGestionMiembros);
+        cambiarColorBotones(btnGestionarMiembros);
+    }//GEN-LAST:event_btnGestionarMiembrosActionPerformed
+
+    private void btnNuevoPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoPrestamoActionPerformed
+        pintarPanel(pNuevoPrestamo);
+        cambiarColorBotones(btnNuevoPrestamo);
+    }//GEN-LAST:event_btnNuevoPrestamoActionPerformed
+
+    private void btnGestionLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionLibrosActionPerformed
+        pintarPanel(pGestionLibros);
+        cambiarColorBotones(btnGestionLibros);
+    }//GEN-LAST:event_btnGestionLibrosActionPerformed
+
+    private void btnGestionUsuariosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionUsuariosActionPerformed
+        pintarPanel(pGestionUsuarios);
+        cambiarColorBotones(btnGestionUsuarios);
+    }//GEN-LAST:event_btnGestionUsuariosActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarLibros;
@@ -255,10 +337,33 @@ public class DashBoard extends javax.swing.JFrame {
     private javax.swing.JButton btnGestionarMiembros;
     private javax.swing.JButton btnNuevoPrestamo;
     private javax.swing.JButton btnPrestamos;
-    private javax.swing.JPanel jPanel1;
     private javax.swing.JLabel lblNombreDelUsuario;
     private javax.swing.JLabel lblRolUsuario;
     private javax.swing.JPanel pFondo;
     private javax.swing.JPanel pMenuLateral;
+    private javax.swing.JPanel panelCambiante;
     // End of variables declaration//GEN-END:variables
+
+    private void pintarPanel(JPanel p) {
+        p.setSize(751, 660);
+        p.setLocation(0, 0);
+
+        panelCambiante.removeAll();
+        panelCambiante.add(p, BorderLayout.CENTER);
+        panelCambiante.revalidate();
+        panelCambiante.repaint();
+    }
+
+    private void cambiarColorBotones(JButton boton) {
+        Color colorBotonSeleccionado = new Color(23, 46, 222);
+        Color colorBotones = new Color(53, 100, 252);
+
+        btnBuscarLibros.setBackground(colorBotones);
+        btnPrestamos.setBackground(colorBotones);
+        btnGestionLibros.setBackground(colorBotones);
+        btnGestionUsuarios.setBackground(colorBotones);
+        btnGestionarMiembros.setBackground(colorBotones);
+        btnNuevoPrestamo.setBackground(colorBotones);
+        boton.setBackground(colorBotonSeleccionado);
+    }
 }
