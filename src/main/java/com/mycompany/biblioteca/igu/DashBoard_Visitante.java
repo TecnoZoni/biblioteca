@@ -1,7 +1,5 @@
 package com.mycompany.biblioteca.igu;
 
-import com.mycompany.biblioteca.igu.Paneles.BuscarLibros;
-import com.mycompany.biblioteca.igu.Paneles.MisPrestamos;
 import com.mycompany.biblioteca.logica.Controladora;
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -12,15 +10,11 @@ public class DashBoard_Visitante extends javax.swing.JFrame {
 
     Controladora control;
     Mensaje mensaje;
-    BuscarLibros pBuscarLibros;
-    MisPrestamos pMisPrestamos;
 
-    public DashBoard_Visitante(Controladora control, Mensaje mensaje, BuscarLibros pBuscarLibros, MisPrestamos pMisPrestamos) {
+    public DashBoard_Visitante(Controladora control, Mensaje mensaje) {
         initComponents();
         this.control = control;
         this.mensaje = mensaje;
-        this.pBuscarLibros = pBuscarLibros;
-        this.pMisPrestamos = pMisPrestamos;
     }
 
     @SuppressWarnings("unchecked")
@@ -177,17 +171,17 @@ public class DashBoard_Visitante extends javax.swing.JFrame {
     }//GEN-LAST:event_btnCerrarVisitaMouseExited
 
     private void btnMisPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnMisPrestamosActionPerformed
-        pintarPanel(pMisPrestamos);
+        
         cambiarColorBotones(btnMisPrestamos);
     }//GEN-LAST:event_btnMisPrestamosActionPerformed
 
     private void btnBuscarLibrosVisitActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarLibrosVisitActionPerformed
-        pintarPanel(pBuscarLibros);
+        
         cambiarColorBotones(btnBuscarLibrosVisit);
     }//GEN-LAST:event_btnBuscarLibrosVisitActionPerformed
 
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
-        pintarPanel(pMisPrestamos);
+        
     }//GEN-LAST:event_formWindowOpened
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
