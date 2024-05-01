@@ -1,5 +1,6 @@
 package com.mycompany.biblioteca.igu;
 
+import com.mycompany.biblioteca.igu.Paneles.GestionDescripciones;
 import com.mycompany.biblioteca.igu.Paneles.GestionUsuarios;
 import com.mycompany.biblioteca.logica.Controladora;
 import com.mycompany.biblioteca.logica.Usuario;
@@ -14,13 +15,15 @@ public class DashBoard extends javax.swing.JFrame {
     Mensaje mensaje;
     Usuario user;
     GestionUsuarios pGestionUsuarios;
+    GestionDescripciones pGestionDescripciones;
 
-    public DashBoard(Controladora control, Mensaje mensaje, Usuario user, GestionUsuarios pGestionUsuarios) {
+    public DashBoard(Controladora control, Mensaje mensaje, Usuario user, GestionUsuarios pGestionUsuarios, GestionDescripciones pGestionDescripciones) {
         initComponents();
         this.control = control;
         this.mensaje = mensaje;
         this.user = user;
         this.pGestionUsuarios = pGestionUsuarios;
+        this.pGestionDescripciones= pGestionDescripciones;
     }
 
     @SuppressWarnings("unchecked")
@@ -305,7 +308,8 @@ public class DashBoard extends javax.swing.JFrame {
     }//GEN-LAST:event_btnGestionUsuariosActionPerformed
 
     private void btnDescripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescripcionesActionPerformed
-        // TODO add your handling code here:
+        pintarPanel(pGestionDescripciones);
+        cambiarColorBotones(btnDescripciones);
     }//GEN-LAST:event_btnDescripcionesActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables

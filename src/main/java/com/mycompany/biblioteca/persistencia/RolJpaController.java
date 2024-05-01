@@ -130,5 +130,5 @@ public class RolJpaController implements Serializable {
             em.close();
         }
     }
-
+    
 }

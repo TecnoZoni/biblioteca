@@ -1,5 +1,6 @@
 package com.mycompany.biblioteca.igu;
 
+import com.mycompany.biblioteca.igu.Paneles.GestionDescripciones;
 import com.mycompany.biblioteca.igu.Paneles.GestionUsuarios;
 import com.mycompany.biblioteca.logica.Controladora;
 import com.mycompany.biblioteca.logica.Usuario;
@@ -11,7 +12,8 @@ public class Login extends javax.swing.JFrame {
 
     Controladora control = new Controladora();
     Mensaje mensaje = new Mensaje();
-    GestionUsuarios pGestionUsuarios = new GestionUsuarios(mensaje,control);
+    GestionUsuarios pGestionUsuarios = new GestionUsuarios(mensaje, control);
+    GestionDescripciones pGestionDescripciones = new GestionDescripciones(mensaje, control);
 
     public Login() {
         initComponents();
@@ -213,7 +215,7 @@ public class Login extends javax.swing.JFrame {
                 Usuario user = control.comprobarUsuario(dni, contrasenia);
                 if (user != null) {
                     if (user.getUnrol().getNombre_rol().equals("Administrador") || user.getUnrol().getNombre_rol().equals("Bibliotecario")) {
-                        DashBoard abrir = new DashBoard(control, mensaje, user, pGestionUsuarios);
+                        DashBoard abrir = new DashBoard(control, mensaje, user, pGestionUsuarios, pGestionDescripciones);
                         abrir.setVisible(true);
 
                         Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
