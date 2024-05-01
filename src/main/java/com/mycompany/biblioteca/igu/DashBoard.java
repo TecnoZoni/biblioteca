@@ -1,11 +1,7 @@
 package com.mycompany.biblioteca.igu;
 
-import com.mycompany.biblioteca.igu.Paneles.BuscarLibros;
-import com.mycompany.biblioteca.igu.Paneles.GestionLibros;
-import com.mycompany.biblioteca.igu.Paneles.GestionMiembros;
+import com.mycompany.biblioteca.igu.Paneles.GestionDescripciones;
 import com.mycompany.biblioteca.igu.Paneles.GestionUsuarios;
-import com.mycompany.biblioteca.igu.Paneles.NuevoPrestamo;
-import com.mycompany.biblioteca.igu.Paneles.Prestamos;
 import com.mycompany.biblioteca.logica.Controladora;
 import com.mycompany.biblioteca.logica.Usuario;
 import java.awt.BorderLayout;
@@ -18,24 +14,16 @@ public class DashBoard extends javax.swing.JFrame {
     Controladora control;
     Mensaje mensaje;
     Usuario user;
-    Prestamos pPrestamos;
-    BuscarLibros pBuscarLibros;
-    GestionMiembros pGestionMiembros;
-    NuevoPrestamo pNuevoPrestamo;
-    GestionLibros pGestionLibros;
     GestionUsuarios pGestionUsuarios;
+    GestionDescripciones pGestionDescripciones;
 
-    public DashBoard(Controladora control, Mensaje mensaje, Usuario user, Prestamos pPrestamos, BuscarLibros pBuscarLibros, GestionMiembros pGestionMiembros, NuevoPrestamo pNuevoPrestamo, GestionLibros pGestionLibros, GestionUsuarios pGestionUsuarios) {
+    public DashBoard(Controladora control, Mensaje mensaje, Usuario user, GestionUsuarios pGestionUsuarios, GestionDescripciones pGestionDescripciones) {
         initComponents();
         this.control = control;
         this.mensaje = mensaje;
         this.user = user;
-        this.pPrestamos = pPrestamos;
-        this.pBuscarLibros = pBuscarLibros;
-        this.pGestionMiembros = pGestionMiembros;
-        this.pNuevoPrestamo = pNuevoPrestamo;
-        this.pGestionLibros = pGestionLibros;
         this.pGestionUsuarios = pGestionUsuarios;
+        this.pGestionDescripciones= pGestionDescripciones;
     }
 
     @SuppressWarnings("unchecked")
@@ -49,10 +37,10 @@ public class DashBoard extends javax.swing.JFrame {
         lblRolUsuario = new javax.swing.JLabel();
         btnPrestamos = new javax.swing.JButton();
         btnBuscarLibros = new javax.swing.JButton();
-        btnGestionarMiembros = new javax.swing.JButton();
         btnNuevoPrestamo = new javax.swing.JButton();
         btnGestionLibros = new javax.swing.JButton();
         btnGestionUsuarios = new javax.swing.JButton();
+        btnDescripciones = new javax.swing.JButton();
         panelCambiante = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -124,21 +112,6 @@ public class DashBoard extends javax.swing.JFrame {
             }
         });
 
-        btnGestionarMiembros.setBackground(new java.awt.Color(53, 100, 252));
-        btnGestionarMiembros.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        btnGestionarMiembros.setForeground(new java.awt.Color(255, 255, 255));
-        btnGestionarMiembros.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user-interface 1.png"))); // NOI18N
-        btnGestionarMiembros.setText("Gestion de Miembros");
-        btnGestionarMiembros.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
-        btnGestionarMiembros.setMaximumSize(new java.awt.Dimension(234, 70));
-        btnGestionarMiembros.setMinimumSize(new java.awt.Dimension(234, 70));
-        btnGestionarMiembros.setPreferredSize(new java.awt.Dimension(234, 70));
-        btnGestionarMiembros.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnGestionarMiembrosActionPerformed(evt);
-            }
-        });
-
         btnNuevoPrestamo.setBackground(new java.awt.Color(53, 100, 252));
         btnNuevoPrestamo.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnNuevoPrestamo.setForeground(new java.awt.Color(255, 255, 255));
@@ -172,7 +145,7 @@ public class DashBoard extends javax.swing.JFrame {
         btnGestionUsuarios.setBackground(new java.awt.Color(53, 100, 252));
         btnGestionUsuarios.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
         btnGestionUsuarios.setForeground(new java.awt.Color(255, 255, 255));
-        btnGestionUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion-de-equipos 1.png"))); // NOI18N
+        btnGestionUsuarios.setIcon(new javax.swing.ImageIcon(getClass().getResource("/user-interface 1.png"))); // NOI18N
         btnGestionUsuarios.setText("Gestion de Usuarios");
         btnGestionUsuarios.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         btnGestionUsuarios.setMaximumSize(new java.awt.Dimension(234, 70));
@@ -184,25 +157,36 @@ public class DashBoard extends javax.swing.JFrame {
             }
         });
 
+        btnDescripciones.setBackground(new java.awt.Color(53, 100, 252));
+        btnDescripciones.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        btnDescripciones.setForeground(new java.awt.Color(255, 255, 255));
+        btnDescripciones.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gestion-de-equipos 1.png"))); // NOI18N
+        btnDescripciones.setText("Descripciónes");
+        btnDescripciones.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
+        btnDescripciones.setMaximumSize(new java.awt.Dimension(234, 70));
+        btnDescripciones.setMinimumSize(new java.awt.Dimension(234, 70));
+        btnDescripciones.setPreferredSize(new java.awt.Dimension(234, 70));
+        btnDescripciones.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnDescripcionesActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout pMenuLateralLayout = new javax.swing.GroupLayout(pMenuLateral);
         pMenuLateral.setLayout(pMenuLateralLayout);
         pMenuLateralLayout.setHorizontalGroup(
             pMenuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnBuscarLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnNuevoPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnGestionLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnGestionUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+            .addComponent(btnDescripciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
             .addGroup(pMenuLateralLayout.createSequentialGroup()
+                .addGap(10, 10, 10)
                 .addGroup(pMenuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnGestionUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGestionLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnNuevoPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnGestionarMiembros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnBuscarLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, pMenuLateralLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addGroup(pMenuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
-                            .addComponent(lblNombreDelUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(lblRolUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(32, 32, 32)))
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(lblNombreDelUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblRolUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 191, javax.swing.GroupLayout.PREFERRED_SIZE)))
         );
         pMenuLateralLayout.setVerticalGroup(
             pMenuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -211,19 +195,18 @@ public class DashBoard extends javax.swing.JFrame {
                 .addComponent(lblNombreDelUsuario)
                 .addGap(6, 6, 6)
                 .addComponent(lblRolUsuario)
-                .addGap(68, 68, 68)
-                .addGroup(pMenuLateralLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(pMenuLateralLayout.createSequentialGroup()
-                        .addGap(66, 66, 66)
-                        .addComponent(btnBuscarLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addComponent(btnGestionarMiembros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34)
+                .addComponent(btnPrestamos, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btnBuscarLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnNuevoPrestamo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
                 .addComponent(btnGestionLibros, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(0, 0, 0)
-                .addComponent(btnGestionUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addComponent(btnGestionUsuarios, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, 0)
+                .addComponent(btnDescripciones, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         javax.swing.GroupLayout panelCambianteLayout = new javax.swing.GroupLayout(panelCambiante);
@@ -296,31 +279,26 @@ public class DashBoard extends javax.swing.JFrame {
     private void formWindowOpened(java.awt.event.WindowEvent evt) {//GEN-FIRST:event_formWindowOpened
         lblNombreDelUsuario.setText(user.getNombre() + " " + user.getApellido());
         lblRolUsuario.setText(user.getUnrol().getNombre_rol());
-        pintarPanel(pPrestamos);
+
     }//GEN-LAST:event_formWindowOpened
 
     private void btnPrestamosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPrestamosActionPerformed
-        pintarPanel(pPrestamos);
+
         cambiarColorBotones(btnPrestamos);
     }//GEN-LAST:event_btnPrestamosActionPerformed
 
     private void btnBuscarLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBuscarLibrosActionPerformed
-        pintarPanel(pBuscarLibros);
+
         cambiarColorBotones(btnBuscarLibros);
     }//GEN-LAST:event_btnBuscarLibrosActionPerformed
 
-    private void btnGestionarMiembrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionarMiembrosActionPerformed
-        pintarPanel(pGestionMiembros);
-        cambiarColorBotones(btnGestionarMiembros);
-    }//GEN-LAST:event_btnGestionarMiembrosActionPerformed
-
     private void btnNuevoPrestamoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnNuevoPrestamoActionPerformed
-        pintarPanel(pNuevoPrestamo);
+
         cambiarColorBotones(btnNuevoPrestamo);
     }//GEN-LAST:event_btnNuevoPrestamoActionPerformed
 
     private void btnGestionLibrosActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGestionLibrosActionPerformed
-        pintarPanel(pGestionLibros);
+
         cambiarColorBotones(btnGestionLibros);
     }//GEN-LAST:event_btnGestionLibrosActionPerformed
 
@@ -329,12 +307,17 @@ public class DashBoard extends javax.swing.JFrame {
         cambiarColorBotones(btnGestionUsuarios);
     }//GEN-LAST:event_btnGestionUsuariosActionPerformed
 
+    private void btnDescripcionesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnDescripcionesActionPerformed
+        pintarPanel(pGestionDescripciones);
+        cambiarColorBotones(btnDescripciones);
+    }//GEN-LAST:event_btnDescripcionesActionPerformed
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscarLibros;
     private javax.swing.JLabel btnCerrarAdmin;
+    private javax.swing.JButton btnDescripciones;
     private javax.swing.JButton btnGestionLibros;
     private javax.swing.JButton btnGestionUsuarios;
-    private javax.swing.JButton btnGestionarMiembros;
     private javax.swing.JButton btnNuevoPrestamo;
     private javax.swing.JButton btnPrestamos;
     private javax.swing.JLabel lblNombreDelUsuario;
@@ -345,11 +328,14 @@ public class DashBoard extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void pintarPanel(JPanel p) {
-        p.setSize(751, 660);
-        p.setLocation(0, 0);
+        // Establecer layout manager del panel padre como BorderLayout
+        panelCambiante.setLayout(new BorderLayout());
 
+        // Añadir el panel al centro del panel padre
         panelCambiante.removeAll();
         panelCambiante.add(p, BorderLayout.CENTER);
+
+        // Revalidar y repintar el panel padre
         panelCambiante.revalidate();
         panelCambiante.repaint();
     }
@@ -362,7 +348,6 @@ public class DashBoard extends javax.swing.JFrame {
         btnPrestamos.setBackground(colorBotones);
         btnGestionLibros.setBackground(colorBotones);
         btnGestionUsuarios.setBackground(colorBotones);
-        btnGestionarMiembros.setBackground(colorBotones);
         btnNuevoPrestamo.setBackground(colorBotones);
         boton.setBackground(colorBotonSeleccionado);
     }
